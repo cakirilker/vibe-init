@@ -5,7 +5,10 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "deploy": "pnpm --filter web run deploy"
+    "deploy": "pnpm --filter web run deploy",
+    "db:migration:generate": "drizzle-kit generate --config ./lib/db/drizzle.config.ts",
+    "db:migration:apply": "drizzle-kit migrate --config ./lib/db/drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config ./lib/db/drizzle.config.ts"
   },
   "devDependencies": {
     "eslint": "^9.31.0",
