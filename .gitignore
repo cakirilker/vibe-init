@@ -79,7 +79,8 @@ dist
 
 # Gatsby files
 .cache/
-public
+# Only ignore Gatsby's public directory, not all public directories
+.gatsby/public/
 
 # Storybook build outputs
 .out
