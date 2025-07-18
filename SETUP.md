@@ -5,8 +5,9 @@ This guide will walk you through publishing the `vibe-init` package to npm so th
 ## Prerequisites
 
 1. **Node.js 16+** installed on your system
-2. **npm account** - Create one at [npmjs.com](https://www.npmjs.com/)
-3. **npm CLI** logged in to your account
+2. **pnpm** installed globally - `npm install -g pnpm`
+3. **npm account** - Create one at [npmjs.com](https://www.npmjs.com/)
+4. **npm CLI** logged in to your account
 
 ## Step 1: Verify Your Package
 
@@ -14,7 +15,7 @@ First, make sure you're in the vibe-init directory and everything is set up corr
 
 ```bash
 cd vibe-init
-npm install
+pnpm install
 ```
 
 Test the CLI locally:
@@ -146,6 +147,13 @@ When you make changes to the template:
    npm publish
    ```
 
+The `prepublishOnly` script will automatically:
+- Clean up old files and dependencies
+- Reinstall dependencies with pnpm
+- Validate that the CLI works correctly
+
+> **Note**: We use npm for publishing since it's the standard, but pnpm for development and testing. The package.json no longer has a custom "publish" script to avoid recursive publishing.
+
 ## Package Structure
 
 Your published package will include:
@@ -162,6 +170,18 @@ If you get permission errors, make sure you're logged in:
 ```bash
 npm whoami
 ```
+
+### Development Dependencies
+Make sure you have pnpm installed for development:
+```bash
+npm install -g pnpm
+```
+
+### Validation Errors
+If publishing fails during validation, check:
+- All templates are properly structured
+- CLI commands work: `pnpm run validate`
+- Dependencies are correctly installed
 
 ### Package Name Conflicts
 If your package name is taken, update the name in package.json and try again.
@@ -216,10 +236,16 @@ To add a new template:
 2. Add all template files with `{{VARIABLE_NAME}}` placeholders
 3. Test the template locally:
    ```bash
+   pnpm dev --template my-new-template
+   # or
    node index.js --template my-new-template
    ```
-4. Update the README.md to document the new template
-5. Increment the version and publish
+4. Run validation to ensure it works:
+   ```bash
+   pnpm run validate
+   ```
+5. Update the README.md to document the new template
+6. Increment the version and publish
 
 ### Template Variables
 

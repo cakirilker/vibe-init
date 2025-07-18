@@ -16,16 +16,13 @@ Or specify a template:
 pnpm dlx vibe-init@latest --template simple-react
 ```
 
-With npm:
+Alternative package managers:
 
 ```bash
+# With npm
 npx vibe-init@latest
-npx vibe-init@latest --template turbo-react-router
-```
 
-With yarn:
-
-```bash
+# With yarn
 yarn create vibe-init
 ```
 
@@ -69,7 +66,7 @@ This template creates a modern monorepo with:
 - **[Turborepo](https://turbo.build/)** - Monorepo build system
 - **[ESLint](https://eslint.org/)** - Code linting
 - **[Prettier](https://prettier.io/)** - Code formatting
-- **[pnpm](https://pnpm.io/)** - Package manager
+- **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
 
 ### Features
 
@@ -96,9 +93,11 @@ After creating your project:
 
 ```bash
 cd your-project-name
-pnpm install  # if not already installed
+pnpm install  # install dependencies (if not already done)
 pnpm dev      # start development server
 ```
+
+> **Note**: vibe-init uses pnpm as the primary package manager for better performance and disk space efficiency. Make sure you have pnpm installed: `npm install -g pnpm`
 
 ### Template-specific Commands
 
