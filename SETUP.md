@@ -1,6 +1,6 @@
 # Setup Guide for vibe-init
 
-This guide will walk you through publishing the `vibe-init` package to npm so that users can run `pnpm dlx vibe-init@latest` to create new projects.
+This guide will walk you through publishing the `vibe-init` package to npm so that users can run `pnpm dlx vibe-init@latest` to create new projects with multiple template options.
 
 ## Prerequisites
 
@@ -186,15 +186,50 @@ If users report issues with the generated template:
 After publishing, users can create new projects with:
 
 ```bash
+# Use default template (turbo-react-router)
 pnpm dlx vibe-init@latest my-awesome-project
+
+# Use specific template
+pnpm dlx vibe-init@latest --template simple-react
+pnpm dlx vibe-init@latest -t turbo-react-router
+
+# List available templates
+pnpm dlx vibe-init@latest --list
+
+# Show help
+pnpm dlx vibe-init@latest --help
 ```
 
 This will:
-1. Prompt for project details
-2. Copy template files
-3. Replace template variables
-4. Install dependencies
-5. Provide next steps
+1. Validate and use the specified template (or default)
+2. Prompt for project details
+3. Copy template files
+4. Replace template variables
+5. Install dependencies
+6. Provide next steps
+
+## Adding New Templates
+
+To add a new template:
+
+1. Create a new directory in `templates/` (e.g., `templates/my-new-template/`)
+2. Add all template files with `{{VARIABLE_NAME}}` placeholders
+3. Test the template locally:
+   ```bash
+   node index.js --template my-new-template
+   ```
+4. Update the README.md to document the new template
+5. Increment the version and publish
+
+### Template Variables
+
+Available template variables:
+- `{{PROJECT_NAME}}` - User-friendly project name
+- `{{PROJECT_DESCRIPTION}}` - Project description
+- `{{AUTHOR}}` - Author name
+- `{{KEBAB_CASE_NAME}}` - kebab-case project name
+- `{{SNAKE_CASE_NAME}}` - snake_case project name
+- `{{PASCAL_CASE_NAME}}` - PascalCase project name
 
 ## Support
 

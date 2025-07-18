@@ -4,25 +4,53 @@ A CLI tool to create new projects with good vibes - a modern full-stack monorepo
 
 ## Usage
 
-Create a new project with:
+Create a new project with the default template:
 
 ```bash
 pnpm dlx vibe-init@latest
 ```
 
-Or with npm:
+Or specify a template:
+
+```bash
+pnpm dlx vibe-init@latest --template simple-react
+```
+
+With npm:
 
 ```bash
 npx vibe-init@latest
+npx vibe-init@latest --template turbo-react-router
 ```
 
-Or with yarn:
+With yarn:
 
 ```bash
 yarn create vibe-init
 ```
 
+## Templates
+
+List all available templates:
+
+```bash
+pnpm dlx vibe-init@latest --list
+```
+
+### Available Templates
+
+- **`turbo-react-router`** (default) - Full-stack monorepo with React Router, TypeScript, and Turborepo
+- **`simple-react`** - Simple React app with Vite and TypeScript
+
+## CLI Options
+
+- `-t, --template <name>` - Template to use (default: turbo-react-router)
+- `-l, --list` - List available templates
+- `-h, --help` - Show help message
+
 ## What's Included
+
+### turbo-react-router Template (Default)
 
 This template creates a modern monorepo with:
 
@@ -52,6 +80,16 @@ This template creates a modern monorepo with:
 - **Code quality** with ESLint and Prettier
 - **Workspace dependencies** with pnpm
 
+### simple-react Template
+
+This template creates a simple React application with:
+
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **ESLint** for code linting
+- **Hot Module Replacement** for instant updates
+- **Modern CSS** with custom styling
+
 ## Getting Started
 
 After creating your project:
@@ -60,6 +98,24 @@ After creating your project:
 cd your-project-name
 pnpm install  # if not already installed
 pnpm dev      # start development server
+```
+
+### Template-specific Commands
+
+#### turbo-react-router
+```bash
+pnpm dev      # start all apps in development
+pnpm build    # build all packages
+pnpm lint     # lint all packages
+pnpm format   # format code with Prettier
+```
+
+#### simple-react
+```bash
+pnpm dev      # start development server
+pnpm build    # build for production
+pnpm preview  # preview production build
+pnpm lint     # run ESLint
 ```
 
 ## Available Scripts
@@ -71,6 +127,7 @@ pnpm dev      # start development server
 
 ## Project Structure
 
+### turbo-react-router Template
 ```
 your-project/
 ├── apps/
@@ -82,6 +139,21 @@ your-project/
 ├── package.json
 ├── pnpm-workspace.yaml
 └── turbo.json
+```
+
+### simple-react Template
+```
+your-project/
+├── src/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── App.css
+│   └── index.css
+├── public/
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
 ## Development
