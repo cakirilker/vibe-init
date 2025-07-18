@@ -1,13 +1,13 @@
 # Web App
 
-A full-stack web application built with React Router, Hono, and Cloudflare Workers.
+A full-stack web application built with Turborepo + React Router.
 
 ## Architecture
 
 - **Frontend**: React Router v7 with SSR
 - **Backend**: Hono for API routes
-- **Runtime**: Cloudflare Workers
-- **Build Tool**: Vite with Cloudflare plugin
+- **Runtime**: Nodejs
+- **Build Tool**: Vite
 
 ## Getting Started
 
@@ -15,7 +15,6 @@ A full-stack web application built with React Router, Hono, and Cloudflare Worke
 
 - Node.js 18+
 - pnpm (recommended)
-- Cloudflare account (for deployment)
 
 ### Development
 
@@ -37,13 +36,4 @@ pnpm run dev
 
 ```bash
 pnpm run build
-```
-
-### Deployment
-
-1. Make sure you have Wrangler installed and configured
-2. Deploy to Cloudflare Workers:
-
-```bash
-pnpm run deploy
 ```

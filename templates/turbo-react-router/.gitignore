@@ -12,3 +12,4 @@ public/dist
 *.env.*
 *.vars
 *.wrangler
+!.env.example
